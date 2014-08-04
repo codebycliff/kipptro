@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Lists </title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/lists/lists.css" rel="stylesheet" />
+    <script src="/js/data.js"></script>
+    <script src="/pages/lists/lists.js"></script>
+</head>
+<body>
+    <div class="headertemplate" data-win-control="WinJS.Binding.Template">
+        <button class="group-header win-type-x-large win-type-interactive" data-win-bind="groupKey: key"
+            onclick="Application.navigator.pageControl.navigateToGroup(event.srcElement.groupKey)" role="link" tabindex="-1" type="button">
+            <span class="group-title win-type-ellipsis" data-win-bind="textContent: title"></span>
+            <span class="group-chevron"></span>
+        </button>
+    </div>
+    <!-- This template is used to display each item in the ListView declared below. -->
+    <div class="listTemplate" data-win-control="WinJS.Binding.Template">
+        <!--<section aria-label="" role="main">
+			<h1 data-win-bind="textContent: title"></h1>
+			<div class="list-clips">
+				
+			</div>
+		</section>-->
+        <div class="list-item">
+            <!--<img class="item-image" 
+				src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXY7h4+cp/AAhpA3h+ANDKAAAAAElFTkSuQmCC" 
+				data-win-bind="alt: title" style="margin: -2px 0px 2px;" />-->
+            <div class="item-overlay">
+                <h2 class="item-title" data-win-bind="textContent: title"></h2>
+                <h6 class="item-subtitle win-type-ellipsis" data-win-bind="textContent: description"></h6>
+            </div>
+        </div>
+    </div>
+
+    <!-- The content that will be loaded and displayed. -->
+    <div class="itemspage fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <button class="titlecontainer">
+                    <h1>
+                        <span class="pagetitle">Kippt</span>
+                        <span class="chevron win-type-x-large">&#xe099;</span></h1>
+                </button>
+            </h1>
+        </header>
+        <div id="headerMenu" data-win-control="WinJS.UI.Menu">
+            <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'listsMenuItem',label:'Lists'}"></button>
+            <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'feedMenuItem',label:'Feed'}"></button>
+            <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'inboxMenuItem',label:'Inbox'}"></button>
+            <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'favoritesMenuItem',label:'Favorites'}"></button>
+            <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'readLaterMenuItem',label:'Read Later'}"></button>
+            <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'allClipsMenuItem',label:'All Clips'}"></button>
+            <hr data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'separator',type:'separator'}" />
+            <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'accountMenuItem',label:'Account'}"></button>
+        </div>
+        <section aria-label="Main content" role="main">
+            <div id="lists" class="itemslist win-selectionstylefilled" aria-label="List of groups" data-win-control="WinJS.UI.ListView" data-win-options="{ selectionMode: 'none' }" style="left: 25px; top: 12px;"></div>
+        </section>
+    </div>
+</body>
+</html>

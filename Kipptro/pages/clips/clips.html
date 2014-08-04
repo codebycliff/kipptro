@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head style="width: 100%; height: 100%; margin: 0px;">
+    <meta charset="utf-8" />
+    <title>Clips</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/clips/clips.css" rel="stylesheet" />
+    <script src="/pages/clips/clips.js"></script>
+</head>
+<body>
+    <div class="clipTemplate" data-win-control="WinJS.Binding.Template">
+        <div class="item" style="height: 260px; width: 350px;">
+            <img class="item-image" src="#" data-win-bind="src: media.images.tile.url; alt: title" style="height: 200px; width: 350px; display: block;" />
+            <div class="item-content" style="height: 60px; width: 350px; background-color: rgba(0, 0, 0, 0.8); margin: 29px -5px -64px 5px; -ms-grid-row-span: 1; -ms-grid-row: 2;">
+                <div data-win-control="WinJS.UI.Rating" data-win-options="{maxRating: 1}" class="favorite-rating"></div>
+                <h2 class="item-title win-type-x-small win-type-ellipsis" data-win-bind="textContent: title"></h2>
+                <!--<h4 class="item-subtitle win-type-x-small win-type-ellipsis" data-win-bind="textContent: url" style="font-style: italic;"></h4>-->
+                <h6 class="item-description win-type-x-small win-type-ellipsis" data-win-bind="textContent: notes"></h6>
+            </div>
+        </div>
+    </div>
+    <!-- The content that will be loaded and displayed. -->
+    <div class="itemspage fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton win-commandring" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Clips</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <div id="clips" class="itemslist win-selectionstylefilled" aria-label="Lists" style="left: 25px; top: 12px;"
+                data-win-control="WinJS.UI.ListView"
+                data-win-options="{ selectionMode: 'none' }">
+                <!--loadingBehavior: 'incremental', automaticallyLoadPages: true, pagesToLoad: 1, pagesToLoadThreshold: 1-->
+            </div>
+        </section>
+    </div>
+
+    <!-- This template is used to display each item in the ListView declared below. -->
+    <!--<div class="itemtemplate" data-win-control="WinJS.Binding.Template">
+        <div class="item">
+            <img class="item-image" src="#" data-win-bind="src: backgroundImage; alt: title" />
+            <div class="item-info">
+                <h3 class="item-title win-type-ellipsis" data-win-bind="textContent: title"></h3>
+                <h6 class="item-subtitle win-type-ellipsis" data-win-bind="textContent: subtitle"></h6>
+                <h4 class="item-description" data-win-bind="textContent: description"></h4>
+            </div>
+        </div>
+    </div>-->
+
+    <!-- The content that will be loaded and displayed. -->
+    <!--<div class="splitpage fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle"></span>
+            </h1>
+        </header>
+        <div class="itemlistsection" aria-label="List column">
+            <div id="Div1" class="itemlist win-selectionstylefilled" aria-label="List of this group's items" data-win-control="WinJS.UI.ListView" data-win-options="{ selectionMode: 'single', swipeBehavior: 'none', tapBehavior: 'toggleSelect' }"></div>
+        </div>
+        <div class="articlesection" aria-atomic="true" aria-label="Item detail column" aria-live="assertive">
+            <article>
+                <header class="header">
+                    <div class="text">
+                        <h2 class="article-title win-type-ellipsis" data-win-bind="textContent: title"></h2>
+                        <h4 class="article-subtitle" data-win-bind="textContent: subtitle"></h4>
+                    </div>
+                    <img class="article-image" src="#" data-win-bind="src: backgroundImage; alt: title" />
+                </header>
+                <div class="article-content" data-win-bind="innerHTML: content"></div>
+            </article>
+        </div>
+    </div>-->
+</body>
+</html>
